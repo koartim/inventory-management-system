@@ -16,7 +16,7 @@ public class RestockingRequest {
     @JoinColumn(name = "item_id", nullable = false)
     private Item item;
 
-    private int requested_quantity;
+    private int requestedQuantity;
 
     private String requestStatus;
 
@@ -26,11 +26,10 @@ public class RestockingRequest {
     public RestockingRequest() {
     }
 
-    public RestockingRequest(Item item, int requested_quantity, String requestStatus, LocalDateTime requestedAt) {
+    public RestockingRequest(Item item, int requestedQuantity, String requestStatus) {
         this.item = item;
-        this.requested_quantity = requested_quantity;
+        this.requestedQuantity = requested_quantity;
         this.requestStatus = requestStatus;
-        this.requestedAt = requestedAt;
     }
 
     public Long getId() {
@@ -49,12 +48,12 @@ public class RestockingRequest {
         this.item = item;
     }
 
-    public int getRequested_quantity() {
-        return requested_quantity;
+    public int getRequestedQuantity() {
+        return requestedQuantity;
     }
 
-    public void setRequested_quantity(int requested_quantity) {
-        this.requested_quantity = requested_quantity;
+    public void setRequestedQuantity(int requestedQuantity) {
+        this.requestedQuantity = requestedQuantity;
     }
 
     public String getRequestStatus() {
