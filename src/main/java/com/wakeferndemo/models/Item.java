@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "items")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +20,17 @@ public class Item {
     @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    public Item() {
+    }
+
+    public Item(String name, String category, BigDecimal price, int stockQuantity, int lowStockThreshold) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+        this.lowStockThreshold = lowStockThreshold;
+    }
 
     public Long getId() {
         return id;
