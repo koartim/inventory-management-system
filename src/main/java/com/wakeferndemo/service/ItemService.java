@@ -24,6 +24,16 @@ public class ItemService {
         itemRepository.deleteById(itemId);
     }
 
+    public Item updateItem(Long itemId, Item updatedItem) {
+        Item item = itemRepository.findById(itemId).orElseThrow(() -> new RuntimeException("Item not found"));
+        item.setName(updatedItem.getName());
+        item.setCategory(updatedItem.getCategory());
+        item.setPrice(updatedItem.getPrice());
+        item.setStockQuantity(updatedItem.getStockQuantity());
+        item.setLowStockThreshold(updatedItem.getLowStockThreshold());
+        return itemRepository.save(item);
+    }
+
     public List<Item> getLowStockItems() {
         return itemRepository.findByStockQuantityLessThan(10);
     }

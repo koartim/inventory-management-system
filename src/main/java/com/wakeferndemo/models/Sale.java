@@ -68,10 +68,6 @@ public class Sale {
         return soldAt;
     }
 
-    public void setSoldAt(LocalDateTime soldAt) {
-        this.soldAt = soldAt;
-    }
-
     @PrePersist
     protected void onCreate() {
         this.soldAt = LocalDateTime.now();
